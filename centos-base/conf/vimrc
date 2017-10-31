@@ -1,0 +1,79 @@
+""""""""""""
+" 一般设定
+" """"""""""
+set nocompatible "去除vi兼容
+
+" 设定默认编码
+set fenc=utf-8
+set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936
+
+" 显示中文帮助
+"if version >= 603
+"  set helplang=cn
+"    set encoding=utf-8
+"endif
+
+"语法高亮
+syntax on
+
+"设置配色
+"colorscheme
+
+"行号
+set number
+
+"自动对齐
+set autoindent
+set smartindent
+
+"搜索高亮
+set incsearch
+
+set cursorline "高亮当前行
+
+"状态行显示的内容，包括文件类型的编码
+if has("statusline")
+set statusline=%F%m%r%h%w\ %=[FORMAT=%{&ff}]\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"}\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}\ nemo
+endif
+
+set laststatus=2 "总是显示状态行
+
+"制表符
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+"在c, c++, python中用空格代替制表符
+autocmd FileType c,cpp,python set shiftwidth=4 | set expandtab
+
+"侦测文件类型
+filetype on
+
+"载入文件类型插件
+filetype plugin on
+
+"为特定文件类型载入相关缩进文件
+filetype indent on
+
+"括号自动补全
+"inoremap ( ()<ESC>i
+"inoremap [ []<ESC>i
+"inoremap { {}<ESC>i
+"inoremap < <><ESC>i
+
+"高亮匹配括号
+set showmatch
+"匹配括号高亮时间（单位是十分之一秒）
+set matchtime=1
+
+"搜索忽略大小写
+set ignorecase
+
+"自动保存
+"set autowrite
+
+"当文件被改动时，自动载入
+"set autoread
+
+"在处理未保存或只读文件时，弹出确认
+"set confirm

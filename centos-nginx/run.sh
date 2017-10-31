@@ -1,0 +1,1 @@
+docker run --name nginx -d --link php71:php71 -v /var/www:/var/www -v /home/ivix/nginx-servers:/etc/nginx/servers -p 80:80 centos-nginx

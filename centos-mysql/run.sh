@@ -1,0 +1,1 @@
+docker run --name mysql -d -p 3306:3306 -v ~/mysql-data:/var/lib/mysql centos-mysql
