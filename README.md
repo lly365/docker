@@ -8,6 +8,8 @@
 |centos-nginx|centos-nginx|nginx|使用epel源安装的nginx，开放80端口。需要挂载本地目录到容器的/etc/nginx/servers和/var/www目录|
 |centos-php71|centos-php71|php71|使用remi源安装的php 7.1，开放9000端口。需要挂载本地目录到容器的/var/www目录|
 |centos-openresty|centos-openresty|openresty|使用openresty官方源安装的openresty，开放8080端口。需要挂载本地目录到容器的/var/www和/usr/local/openresty/nginx/conf/servers目录|
+|centos-php71-cli|centos-php71-cli|php71-cli|和centos-php71一样，去除了php-fpm。本镜像是PHP 7.1的命令行模式。需要挂载本地目录到/var/www|
+|centos-composer|centos-composer|composer|基于centos-php71-cli构建，增加了composer支持。需要挂载本地目录到/var/www|
 
 # 构建
 

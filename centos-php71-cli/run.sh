@@ -1,0 +1,1 @@
+docker run --name php71-cli -it --link mysql:mysql -v /var/www:/var/www centos-php71-cli
