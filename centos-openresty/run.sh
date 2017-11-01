@@ -1,0 +1,1 @@
+docker run --name openresty -d -p 8080:8080 -v /home/ivix/openresty-servers:/usr/local/openresty/nginx/conf/servers -v /home/ivix/openresty-www:/var/www centos-openresty
