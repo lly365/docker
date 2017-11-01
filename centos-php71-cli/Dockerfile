@@ -8,4 +8,8 @@ RUN yum update -y && yum install -y php-cli php-gd php-json php-markdown php-mbs
 RUN sed -i 's/;date.timezone =/date.timezone = PRC/' /etc/php.ini
 RUN sed -i 's/display_errors = Off/display_errors = On/' /etc/php.ini
 RUN sed -i 's/error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT/error_reporting = E_ALL/' /etc/php.ini
+RUN mkdir -p /opt/cacert
+COPY files/cacert.pem /opt/cacert
+RUN sed -i 's|;curl.cainfo =|curl.cainfo = /opt/cacert/cacert.pem|' /etc/php.ini
+RUN yum install -y git
 VOLUME ["/var/www"]

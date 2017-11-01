@@ -5,3 +5,4 @@ RUN curl -o composer-setup.php https://getcomposer.org/installer && \
 	php composer-setup.php && \
 	mv composer.phar /usr/local/bin/composer && \
 	chmod +x /usr/local/bin/composer
+RUN composer config -g repo.packagist composer https://packagist.phpcomposer.com

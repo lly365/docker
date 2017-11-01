@@ -18,6 +18,9 @@ RUN sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php.ini
 RUN sed -i 's/display_errors = Off/display_errors = On/' /etc/php.ini
 RUN sed -i 's/error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT/error_reporting = E_ALL/' /etc/php.ini
 RUN sed -i 's/daemonize = yes/daemonize = no/' /etc/php-fpm.conf
+RUN mkdir -p /opt/cacert
+COPY files/cacert.pem /opt/cacert
+RUN sed -i 's|;curl.cainfo =|curl.cainfo = /opt/cacert/cacert.pem|' /etc/php.ini
 RUN chown -R nginx:nginx /var/lib/php/session
 VOLUME ["/var/www"]
 #RUN firewall-cmd --zone=public --add-port=80/tcp --permanent && firewall-cmd --reload
